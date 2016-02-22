@@ -1,6 +1,6 @@
 <?php
-mysql_connect("localhost","root","");
-mysql_select_db("prestashop1");
+mysql_connect("localhost","root","");//connect
+mysql_select_db("prestashop1");//database
 $root=mysql_query("select name from url");
 if($url_now=mysql_fetch_array($root))
 $currenturl=$url_now[0];
@@ -68,10 +68,10 @@ $irely=mysql_query("select shop.id_product,shop.id_product_attribute,shop.price,
 	}
 	
 }
-}//irely
+}//irely end
+
+
 //zopnow code start
-
-
 else if(strpos($currenturl,$zopnow_name))
 {
 $my_cart=mysql_query("select * from ps_cart_product where id_shop=(select id_shop from ps_shop where name='$zopnow_name')");
@@ -131,8 +131,8 @@ $zopnow=mysql_query("select shop.id_product,shop.id_product_attribute,shop.price
 	
 }
 }//zopnow
-//ask me bazer start
 
+//ask me bazer start
 else if(strpos($currenturl,$ask_name))
 {
 $my_cart=mysql_query("select * from ps_cart_product where id_shop=(select id_shop from ps_shop where name='$ask_name')");
@@ -191,7 +191,7 @@ $ask=mysql_query("select shop.id_product,shop.id_product_attribute,shop.price,na
 	}
 	
 }
-}//ask me bazer
+}//ask me bazer end
 
 //sangam start
 
