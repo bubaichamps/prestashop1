@@ -24,8 +24,19 @@
 *  International Registered Trademark & Property of PrestaShop SA
 */
 // @TODO Find the reason why the blockcart.php is includ multiple time
+//session added
 mysql_connect("localhost","root","");
 mysql_select_db("prestashop1");
+date_default_timezone_set('Asia/Calcutta');
+$mydate=date("Y-m-d H:i:s");
+session_start();
+$se=session_id();
+mysql_query("update ps_cart_product set session='$se' where date_add='$mydate'");
+
+
+
+
+//single cart 
 $root=mysql_query("select name from url");
 if($url_now=mysql_fetch_array($root))
 $currenturl=$url_now[0];
